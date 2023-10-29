@@ -39,7 +39,7 @@ public class jiemi {
 		StringBuilder bu=new StringBuilder();
 		for(int i=0;i<num1.length();i++) {
 			char chars;
-			chars=num1.charAt(i);
+			chars=num1.charAt(i);//提取字符串中的字符
 			int ascii=(int) chars+i+4;
 			bu.append((char)ascii);
 			System.out.println("的ASCII值为："+ascii);
@@ -49,11 +49,11 @@ public class jiemi {
 		char end=bu.charAt(bu.length()-1);
 		System.out.println("字符串首尾交替后为："+end+bu.substring(1, bu.length()-1)+begin);
 		bu.setCharAt(0,end);
-		bu.setCharAt(bu.length()-1, begin);
+		bu.setCharAt(bu.length()-1, begin);//将首尾字母调换
 		String shuzu=" ";
 		for(int i=0;i<bu.length();i++) {
 			shuzu=bu.charAt(i)+shuzu;
-		}
+		}//将字符倒转
 		System.out.println("字符串倒转后为："+shuzu);
 		return shuzu;
 	}
@@ -70,16 +70,16 @@ public class decrypt {
 		String shuzu="";
 		for(int i=0;i<num2.length();i++) {
 			shuzu=bus.charAt(i)+shuzu;
-		}
+		}将字符串全部倒转
 		System.out.println("字符串倒转后为："+shuzu);
 		char begins=shuzu.charAt(0);
-		char ends=shuzu.charAt(shuzu.length()-1);
+		char ends=shuzu.charAt(shuzu.length()-1);//将首尾字母调换
 		System.out.println("字符串首尾交替后为："+ends+shuzu.substring(1, shuzu.length()-1)+begins);
 		bus.setCharAt(0,ends);
 		bus.setCharAt(shuzu.length()-1, begins);
 		for(int i=0;i<shuzu.length();i++) {
 			char charss;
-			charss=shuzu.charAt(i);
+			charss=shuzu.charAt(i);//提取字符串中的字符
 			int ascii=(int) charss-(i+1)-3;
 			get.append((char)ascii);
 			System.out.println("的ASCII值为："+ascii);
@@ -88,4 +88,3 @@ public class decrypt {
 		return get;
 	}
 }
-//我修改了内容
