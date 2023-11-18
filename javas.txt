@@ -88,3 +88,111 @@ public class decrypt {
 		return get;
 	}
 }
+package xiangmu1;
+import java.util.Scanner;
+import java.io.*;
+public class panduan {
+	public int hello(String[] args) {
+		int n1=0,n2=0,n3=0;
+		Scanner input=new Scanner(System.in);
+		System.out.println("请输入一串密码：");
+		String password=input.next();
+		if(password.length()<8) {
+			System.out.printf("该密码长度过小");
+		}
+		else if(password.length()>=8) {
+			for(int i=0;i<password.length();i++) {
+			password.charAt(i);
+			if(Character.isLetter(password.charAt(i)))
+				n1++;
+			}
+			for(int i=0;i<password.length();i++) {
+				password.charAt(i);
+				if(Character.isLowerCase(password.charAt(i))) {
+					n2++;
+				}
+			}
+			for(int i=0;i<password.length();i++) {
+				password.charAt(i);
+				if(Character.isUpperCase(password.charAt(i))) {
+					n3++;
+				}
+			}
+		}
+		if(n1==0&&n2==0&&n3==0) {
+			System.out.println("该密码强度为弱");
+		}else if((n1>0&&n2==0&&n3==0)||(n1==0&&n2>0&&n3>0)||(n1==0&&n2>0&&n3==0)||(n1==0&&n2==0&&n3>0)) {
+			System.out.println("该密码强度为弱");
+		}else if((n1>0&&n2>0&&n3==0)||(n1>0&&n2==0&&n3>0)) {
+			System.out.println("该密码强度为中");
+		}else if((n1>0&&n2>0&&n3>0)) {
+			System.out.println("该密码强度为强");
+		}
+		return 0;
+	}
+}
+package xiangmu1;
+import java.io.*;
+import java.util.Scanner;
+import java.security.SecureRandom;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+public class shengcheng {
+	private static String number1="abcdefghijklmnopqrstuvw";
+	private static String number2="0123456789";
+	private List<Character> list;
+	private static char getRandomChar(String str) {
+		SecureRandom random=new SecureRandom();
+		return str.charAt(random.nextInt(str.length()));
+	}
+	private static char getLowChar() {
+		return getRandomChar(number1);
+	}
+	private static char getUpperChar() {
+		return Character.toUpperCase(getLowChar());
+	}
+	private static char getshuziChar() {
+		return getRandomChar(number2);
+	} 
+	private static char getRandomChars(int funnum) {
+		switch(funnum) {
+		case 0:
+			return getLowChar();
+		case 1:
+			return getUpperChar();
+		case 2:
+			return getshuziChar();
+			default:
+				break;
+		}
+		return 0;
+	}
+	private static String getRandomPwd(int num) {
+		List<Character> list=new ArrayList<>(num);
+		list.add(getLowChar());
+		list.add(getUpperChar());
+		list.add(getshuziChar());
+		for(int i=3;i<num;i++) {
+			SecureRandom random=new SecureRandom();
+			int funnum=random.nextInt(3);
+			list.add(getRandomChars(funnum));
+		}
+		Collections.shuffle(list);
+		StringBuilder stringbuilder=new StringBuilder(list.size());
+		for(Character c:list) {
+			stringbuilder.append(c);
+		}
+		return stringbuilder.toString();
+	}
+	public static void haoya(String[] args) {
+		Scanner input=new Scanner(System.in);
+		System.out.println("请输入密码的长度：");
+		int num=input.nextInt();
+		for(int i=0;i<num;i++) {
+			System.out.println(getRandomPwd(num));
+		}
+
+	}
+
+}
