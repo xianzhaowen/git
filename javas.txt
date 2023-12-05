@@ -6,32 +6,44 @@ public class mima {
 		Scanner input=new Scanner(System.in);
 		jiemi higer=new  jiemi();
 		decrypt wide=new decrypt();
+		panduan strong=new panduan();
+		shengcheng abc=new shengcheng();
 		boolean flag=true;
 		while(flag) {
-			System.out.println("请输入密码的位数：");
-			int a=input.nextInt();
-			System.out.println("1.加密功能 2.解密功能 3.退出");
+			System.out.println("============================================");
+			System.out.println("               欢迎使用密码管理系统                ");
+			System.out.println("============================================");
+			System.out.println("请选择操作");
+			System.out.println("1.加密功能\n2.解密功能\n3.判断密码强度功能\n4.密码生成功能\n5.退出\n");
 			System.out.println("请输入选择功能的序号：");
 			int b=input.nextInt();
 			switch(b) {
 				case 1:
+					System.out.println("请输入密码的位数：");
+					int a=input.nextInt();
 					System.out.println("请输入密码：");
 					String shuzu=input.next();
 					higer.jiami(shuzu);
 					break;
 				case 2:
-					//System.out.println("请输入密码：");
-					//System.out.println("请输入密码：");
-					//String shuzus=input.next();
 					wide.jiemis();
 					break;
 				case 3:
+					strong.hello(null);
+					break;
+				case 4:
+					abc.haoya(null);
+					//flag=false;
+					
+					break;
+				case 5:
 					flag=false;
 			}
 		}
 		input.close();
 	}
 }
+
 package xiangmu1;
 public class jiemi {
 	char str[];
@@ -87,6 +99,7 @@ public class decrypt {
 		System.out.println("加密后的ASCII值为："+get);
 		return get;
 	}
+<<<<<<< HEAD
 }
 package xiangmu1;
 import java.util.Scanner;
@@ -196,3 +209,6 @@ public class shengcheng {
 	}
 
 }
+=======
+}//修改
+>>>>>>> 4a27bf6f5ab2cc2dd209f34dff64d3f3a5294d8b
