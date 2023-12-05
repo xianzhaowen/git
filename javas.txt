@@ -15,6 +15,7 @@ public class mima {
 			System.out.println("============================================");
 			System.out.println("请选择操作");
 			System.out.println("1.加密功能\n2.解密功能\n3.判断密码强度功能\n4.密码生成功能\n5.退出\n");
+			System.out.println("6.删掉解决冲突");
 			System.out.println("请输入选择功能的序号：");
 			int b=input.nextInt();
 			switch(b) {
