@@ -87,4 +87,4 @@ public class decrypt {
 		System.out.println("加密后的ASCII值为："+get);
 		return get;
 	}
-}
+}//修改
