@@ -54,7 +54,7 @@ public class jiemi {
 			char chars;
 			chars=num1.charAt(i);//提取字符串中的字符
 			int ascii=(int) chars+i+4;
-			bu.append((char)ascii);
+			bu.append((char)ascii);//添加到bu这个对象里面
 			System.out.println("的ASCII值为："+ascii);
 		}
 		System.out.println("加密后的ASCII值为："+bu);
@@ -117,18 +117,18 @@ public class panduan {
 		else if(password.length()>=8) {
 			for(int i=0;i<password.length();i++) {
 			password.charAt(i);
-			if(Character.isLetter(password.charAt(i)))
+			if(Character.isLetter(password.charAt(i)))//判断是否为字母
 				n1++;
 			}
 			for(int i=0;i<password.length();i++) {
 				password.charAt(i);
-				if(Character.isLowerCase(password.charAt(i))) {
+				if(Character.isLowerCase(password.charAt(i))) {//判断是否为小写字母
 					n2++;
 				}
 			}
 			for(int i=0;i<password.length();i++) {
 				password.charAt(i);
-				if(Character.isUpperCase(password.charAt(i))) {
+				if(Character.isUpperCase(password.charAt(i))) {//判断是否为大写字母
 					n3++;
 				}
 			}
@@ -153,23 +153,23 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 public class shengcheng {
-	private static String number1="abcdefghijklmnopqrstuvw";
-	private static String number2="0123456789";
+	private static String number1="abcdefghijklmnopqrstuvw";//设置字母字符串
+	private static String number2="0123456789";//设置数字字符串
 	private List<Character> list;
-	private static char getRandomChar(String str) {
+	private static char getRandomChar(String str) {//获取随机字符串的字符
 		SecureRandom random=new SecureRandom();
 		return str.charAt(random.nextInt(str.length()));
 	}
-	private static char getLowChar() {
+	private static char getLowChar() {//获取小写字母
 		return getRandomChar(number1);
 	}
-	private static char getUpperChar() {
+	private static char getUpperChar() {//获取大写字母
 		return Character.toUpperCase(getLowChar());
 	}
-	private static char getshuziChar() {
+	private static char getshuziChar() {//获取数字
 		return getRandomChar(number2);
 	} 
-	private static char getRandomChars(int funnum) {
+	private static char getRandomChars(int funnum) {//随机使用字符函数
 		switch(funnum) {
 		case 0:
 			return getLowChar();
@@ -189,11 +189,11 @@ public class shengcheng {
 		list.add(getshuziChar());
 		for(int i=3;i<num;i++) {
 			SecureRandom random=new SecureRandom();
-			int funnum=random.nextInt(3);
+			int funnum=random.nextInt(3);//随机调用字符函数
 			list.add(getRandomChars(funnum));
 		}
-		Collections.shuffle(list);
-		StringBuilder stringbuilder=new StringBuilder(list.size());
+		Collections.shuffle(list);//collection类的shuffle可以对字符进行随机排列
+		StringBuilder stringbuilder=new StringBuilder(list.size());//size（）返回集合中的个数
 		for(Character c:list) {
 			stringbuilder.append(c);
 		}
